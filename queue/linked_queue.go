@@ -51,8 +51,8 @@ func (l *LinkedQueue[T]) Out() (T, error) {
 		}
 		headNextPtr := atomic.LoadPointer(&head.tail)
 		if atomic.CompareAndSwapPointer(&l.head, headPtr, headNextPtr) {
-			headNext := (*Node[T])(headNextPtr)
-			return headNext.val, nil
+			//headNext := (*Node[T])(headNextPtr)
+			return head.val, nil
 		}
 	}
 }
